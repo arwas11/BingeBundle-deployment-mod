@@ -2,6 +2,8 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   script: |
     docker build -t us-west2-docker.pkg.dev/$PROJECT_ID/binge-bundler-repo/binge-bundler-image:tag1 .
+  options:
+    logging: CLOUD_LOGGING_ONLY
   automapSubstitutions: true
 images:
 - 'us-west2-docker.pkg.dev/$PROJECT_ID/binge-bundler-repo/binge-bundler-image:tag1'
