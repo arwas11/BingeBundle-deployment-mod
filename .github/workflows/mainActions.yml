@@ -1,4 +1,4 @@
-name: Test and Check Secrets
+name: Check Secrets
 
 on:
   push:
@@ -7,6 +7,7 @@ on:
 jobs:
   example-job:
     name: Log secrets
+    runs-on: ubuntu-latest
     steps:
       - name: Retrieve secret
         env:
