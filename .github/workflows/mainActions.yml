@@ -1,4 +1,4 @@
-name: Check Secrets
+name: Test and Check Secrets
 
 on:
   push:
@@ -9,11 +9,13 @@ jobs:
     name: Log secrets
     runs-on: ubuntu-latest
     steps:
-      - name: Retrieve secret
-        env:
-          apiiKey: ${{ secrets.APIIKEY }}
-          bearerrToken: ${{ secrets.BEARERRTOKEN }}
+      - uses: actions/checkout@v3
+      - name: Log secrets
         run: |
-          echo "See secrets:"
-          echo "1 " ${{ secrets.APIIKEY }}
-          echo "2 " ${{ secrets.BEARERRTOKEN }}
+          echo "apiKey: ${apiKey}"
+          echo "bearerToken: ${bearerToken}"
+          echo "baseUrl: ${baseUrl}"
+        env:
+          apiKey: ${{ secrets.APIKEY }}
+          bearerToken: ${{ secrets.BEARERTOKEN }}
+          baseUrl: ${{ secrets.BASEURL }}
