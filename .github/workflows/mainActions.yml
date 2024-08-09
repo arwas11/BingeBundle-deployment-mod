@@ -1,15 +1,12 @@
-On:
-  push: #run when we push
-    branches: [main] # to the main branch
-jobs: # list of jobs to run
-  test: # job name
-  # ...
-    steps: # list of steps to complete 
-    # ..
-    # - run: npm ci # install allpackages
-    # - run: npm test # run tests
-  retriveSecrets:
-    runs on: ubuntu-latest
+name: Test and Check Secrets
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  example-job:
+    name: Log secrets
     steps:
       - name: Retrieve secret
         env:
