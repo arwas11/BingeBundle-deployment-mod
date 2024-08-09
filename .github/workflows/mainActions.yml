@@ -1,0 +1,21 @@
+On:
+  push: #run when we push
+    branches: [main] # to the main branch
+jobs: # list of jobs to run
+  test: # job name
+  # ...
+    steps: # list of steps to complete 
+    # ..
+    # - run: npm ci # install allpackages
+    # - run: npm test # run tests
+  retriveSecrets:
+    runs on: ubuntu-latest
+    steps:
+      - name: Retrieve secret
+        env:
+          apiiKey: ${{ secrets.APIIKEY }}
+          bearerrToken: ${{ secrets.BEARERRTOKEN }}
+        run: |
+          echo "See secrets:"
+          echo "1 " ${{ secrets.APIIKEY }}
+          echo "2 " ${{ secrets.BEARERRTOKEN }}
