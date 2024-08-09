@@ -1,72 +1,72 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MovieTitle, TVTitle } from '../../interfaces/streaming-Service';
-import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class MovieApiService {
-  API_KEY = environment.apiKey;
+  API_KEY = secrets.APIIKEY;
 
   constructor(private httpClient: HttpClient) {}
 
   getHomepageTVTitles(pageNumber: number) {
     const headers = {
-      Authorization:environment.bearerToken,
+      Authorization:secrets.BEARERRTOKEN,
     };
     return this.httpClient.get<TVTitle[]>(
-      `${environment.baseUrl}/tv/popular?page=${pageNumber}&limit=100`,
+      `${secrets.BASEEURL}/tv/popular?page=${pageNumber}&limit=100`,
       { headers }
     );
   }
 
   getSingleMovieTitle() {
     const headers = {
-      Authorization:environment.bearerToken,
+      Authorization:secrets.BEARERRTOKEN,
     };
     return this.httpClient.get<MovieTitle>(
-      `${environment.baseUrl}/movie/948549?language=en-US`,
+      `${secrets.BASEEURL}/movie/948549?language=en-US`,
       { headers }
     );
   }
 
   getHomepageMovieTitles(pageNumber: number) {
     const headers = {
-      Authorization:environment.bearerToken,
+      Authorization:secrets.BEARERRTOKEN,
     };
     return this.httpClient.get<any>(
-      `${environment.baseUrl}/movie/popular?page=${pageNumber}&limit=100`,
+      `${secrets.BASEEURL}/movie/popular?page=${pageNumber}&limit=100`,
       { headers }
     );
   }
 
   getSearch(searchText: string) {
     const headers = {
-      Authorization:environment.bearerToken,
+      Authorization:secrets.BEARERRTOKEN,
     };
     return this.httpClient.get<any>(
-      `${environment.baseUrl}/search/multi?query=${searchText}&include_adult=false&language=en-US&page=1`,
+      `${secrets.BASEEURL}/search/multi?query=${searchText}&include_adult=false&language=en-US&page=1`,
       { headers }
     );
   }
 
   getTVDetails(seriesId: number) {
     const headers = {
-      Authorization:environment.bearerToken,
+      Authorization:secrets.BEARERRTOKEN,
     };
     return this.httpClient.get<any>(
-      `${environment.baseUrl}/tv/${seriesId}`,
+      `${secrets.BASEEURL}/tv/${seriesId}`,
       { headers }
     );
   }
 
   getMovieDetails(movieId: number) {
     const headers = {
-      Authorization:environment.bearerToken,
+      Authorization:secrets.BEARERRTOKEN,
     };
     return this.httpClient.get<any>(
-      `${environment.baseUrl}/movie/${movieId}`,
+      `${secrets.BASEEURL}/movie/${movieId}`,
       { headers }
     );
   }
@@ -74,10 +74,10 @@ export class MovieApiService {
   // Tv providers api call
   getMovieProviders(movieId: number){
     const headers = {
-      Authorization:environment.bearerToken,
+      Authorization:secrets.BEARERRTOKEN,
     };
     return this.httpClient.get<any>(
-      `${environment.baseUrl}/movie/${movieId}/watch/providers`,
+      `${secrets.BASEEURL}/movie/${movieId}/watch/providers`,
       { headers }
     );
   }
@@ -85,10 +85,10 @@ export class MovieApiService {
   //Tv providers api call
   getTVProviders(seriesId: number){
     const headers = {
-      Authorization:environment.bearerToken,
+      Authorization:secrets.BEARERRTOKEN,
     };
     return this.httpClient.get<any>(
-      `${environment.baseUrl}/tv/${seriesId}/watch/providers`,
+      `${secrets.BASEEURL}/tv/${seriesId}/watch/providers`,
       { headers }
     );
   }

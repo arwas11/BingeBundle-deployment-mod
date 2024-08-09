@@ -1,0 +1,18 @@
+name: Test and Check Secrets
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  example-job:
+    name: Log secrets
+    steps:
+      - name: Retrieve secret
+        env:
+          apiiKey: ${{ secrets.APIIKEY }}
+          bearerrToken: ${{ secrets.BEARERRTOKEN }}
+        run: |
+          echo "See secrets:"
+          echo "1 " ${{ secrets.APIIKEY }}
+          echo "2 " ${{ secrets.BEARERRTOKEN }}
