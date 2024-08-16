@@ -17,7 +17,7 @@ describe('HomepageComponent', () => {
   //   fixture.detectChanges();
   // });
 
-  it('returns true', () => {
+  it('returns true.', () => {
     expect(true).toBeTruthy()
   })
 //   it('should create', () => {
