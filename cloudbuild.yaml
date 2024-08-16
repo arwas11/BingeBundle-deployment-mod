@@ -1,4 +1,5 @@
 steps:
+# Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   script: |
     docker build -t us-west2-docker.pkg.dev/$PROJECT_ID/binge-bundler-repo/binge-bundler-image:tag1 .
